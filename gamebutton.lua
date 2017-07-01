@@ -1,4 +1,4 @@
-local GameButton = {}
+local GameButton = {x = nil, y = nil, name = ""}
 
 function GameButton:new(o)
 	o = o or {}
@@ -9,6 +9,10 @@ end
 
 function GameButton:nextButtonAndState(key)
 	-- return GameButton object (self or next) and state (self or next)
+end
+
+function GameButton:draw()
+	love.graphics.print(self.name, self.x, self.y)
 end
 
 return GameButton

@@ -1,9 +1,10 @@
 local State = State or require("state")
+local MainMenuState = MainMenuState or require("mainmenustate")
 
 local TitleState = State:new{time_to_main = 2.4, 
 							game_name = nil}
 
-function TitleState:draw()
+function TitleState:drawState()
 	love.graphics.print(self.game_name, 
 		love.window.getWidth()*2/5, 
 		love.window.getHeight()/3)
