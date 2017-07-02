@@ -1,4 +1,5 @@
-GameButton = GameButton or require "gamebutton" 
+GameButton = GameButton or require "gamebutton"
+GameInitState = GameInitState or require "gameinitstate" 
 
 FishButton = GameButton:new{x = 500, y = 180, name = "Go Fishin'",
 							quitbutton = nil}

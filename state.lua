@@ -1,4 +1,3 @@
-local Game = Game or require("game")
 local GameButton = GameButton or require("gamebutton")
 
 local State = {buttons = {},

@@ -1,7 +1,7 @@
 -- requirements
-local State = State or require("state")
-local FishButton = FishButton or require("fishbutton")
-local QuitButton = QuitButton or require("quitbutton")
+State = State or require "state"
+FishButton = FishButton or require "fishbutton" 
+QuitButton = QuitButton or require "quitbutton" 
 
 -- instantiate and link buttons together
 local fishbutton = FishButton:new()
@@ -10,7 +10,7 @@ fishbutton.quitbutton = quitbutton
 quitbutton.fishbutton = fishbutton
 
 -- constructor
-local MainMenuState = State:new{
+MainMenuState = State:new{
 							buttons = {fishbutton, quitbutton},
 							current_gamebutton = fishbutton 
 						}
@@ -18,7 +18,7 @@ local MainMenuState = State:new{
 
 
 function MainMenuState:drawState()
-	love.graphics.print("~~ Gone Fishin' Main Menu ~~", 100, 30)
+	love.graphics.print("~~ Gone Fishin' Main Menu ~~", 200, 50)
 end
 
 function MainMenuState:update(dt)

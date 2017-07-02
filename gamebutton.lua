@@ -7,7 +7,7 @@ function GameButton:new(o)
 	return o
 end
 
-function GameButton:nextButtonAndState(key)
+function GameButton:nextButtonAndState(key, currentstate)
 	-- return GameButton object (self or next) and state (self or next)
 end
 
