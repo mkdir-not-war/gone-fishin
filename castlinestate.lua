@@ -1,11 +1,11 @@
-local State = State or require("state")
-local FishingState = FishingState or require("fishingstate")
+State = State or require("state")
+FishingState = FishingState or require("fishingstate")
 
 local time_to_fish_max = 5.4
 
-local CastLineState = State:new{ time_to_fish = 0,
-									location = nil,
-									bait = nil }
+CastLineState = State:new{ time_to_fish = 0,
+								location = nil,
+								bait = nil }
 
 function CastLineState:drawState()
 	if self.time_to_fish < 0.8 then
@@ -39,7 +39,7 @@ function CastLineState:handlekey(key)
 		love.event.quit()
 		return self
 	elseif key == "return" and self.time_to_fish > time_to_fish_max then
-		return FishingState:new{location = location, bait = bait}
+		return FishingState:new{location = self.location, bait = self.bait}
 	else
 		return self
 	end

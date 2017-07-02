@@ -1,5 +1,5 @@
-local State = State or require("state")
-local Game = Game or require("game")
+State = State or require("state")
+Game = Game or require("game")
 
 local FishingState = State:new{}
 
