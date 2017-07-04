@@ -1,7 +1,6 @@
 local TitleState = require("titlestate")
 
 local current_gamestate = nil
-local game = nil
 
 local game_name = "Gone Fishin'"
 
@@ -10,7 +9,7 @@ local input_timer = nil
 
 function love.load()
 	-- set the random seed to be different for every run of the game
-	math.randomseed(os.time)
+	math.randomseed(os.time())
 	-- set initial gamestate to be the title screen
 	current_gamestate = TitleState:new{game_name = game_name}
 	-- set the input timer, which prevents input from happening too quickly

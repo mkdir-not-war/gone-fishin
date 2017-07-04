@@ -39,7 +39,9 @@ function CastLineState:handlekey(key)
 		love.event.quit()
 		return self
 	elseif key == "return" and self.time_to_fish > time_to_fish_max then
-		return FishingState:new{location = self.location, bait = self.bait}
+		local fs = FishingState:new{location = self.location, bait = self.bait}
+		fs:loadGame()
+		return fs
 	else
 		return self
 	end

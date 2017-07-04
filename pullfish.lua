@@ -3,7 +3,24 @@ Location = Location or require "location"
 Bait = Bait or require "bait"
 require "mathhelper"
 
-PullFish = {}
+local L = Location:new()
+local B = Bait:new()
+local allfish = {}
+
+allfish.ShinyTrash = Fish:new{name="Shiny Trash", rarity=1000, 
+	ai="immobile", baitdrop="SHINY_TRASH"}
+allfish.SpermWhale = Fish:new{name="Sperm Whale", rarity=1, 
+	ai="fast-edges", baitdrop="SPERMACETI"}
+allfish.RiverSunny = Fish:new{name="River Sunny", rarity=1000, 
+	ai="slow", baitdrop="CHUM"}
+allfish.LakeSunny = Fish:new{name="Lake Sunny", rarity=1000, 
+	ai="slow", baitdrop="CHUM"}
+allfish.OceanSunny = Fish:new{name="Ocean Sunny", rarity=1000, 
+	ai="slow", baitdrop="CHUM"}
+allfish.SwampSunny = Fish:new{name="Swamp Sunny", rarity=1000, 
+	ai="slow", baitdrop="CHUM"}
+
+PullFish = {L = L, B = B, allfish = allfish, location = nil, bait = nil}
 
 function PullFish:new(o)
 	o = o or {}
@@ -12,18 +29,13 @@ function PullFish:new(o)
 	return o
 end
 
-local allfish = {}
-
-allfish.RiverSunny = Fish:new(name="River Sunny", rarity=1000, ai="immobile", baitdrop="BASIC_CHUM")
-allfish.LakeSunny = Fish:new(name="River Sunny", rarity=1000, ai="immobile", baitdrop="BASIC_CHUM")
-allfish.OceanSunny = Fish:new(name="River Sunny", rarity=1000, ai="immobile", baitdrop="BASIC_CHUM")
-allfish.RiverSunny = Fish:new(name="River Sunny", rarity=1000, ai="immobile", baitdrop="BASIC_CHUM")
-
-function PullFish:getFish(location, bait)
+function PullFish:getFish()
 	local fishbank = {}
-	for v, _ in pairs(Location.location) do
-		if Bait.bait.v do
-			fishbank.v = allfish.v
+	local locfish = self.L[self.location]
+	local baitfish = self.B[self.bait]
+	for v, _ in pairs( locfish ) do
+		if baitfish[v] then
+			fishbank[v] = self.allfish[v]
 		end
 	end
 

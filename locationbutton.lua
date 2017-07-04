@@ -48,13 +48,13 @@ function LocationButton:draw()
 	love.graphics.print("Location: ", 
 		self.x - (25 + love.graphics.getFont():getWidth("Location: ")), self.y)
 	if (self.active) then
-		love.graphics.print("Cycle through locations with <up> and <down>.\nPick with <enter>.", 
+		love.graphics.print("Cycle through locations using the\n <up> and <down> keys.\nPick with <enter>.", 
 			self.x + 120, self.y)
 	end
 end
 
 function LocationButton:getLocation()
-	return self.current_location
+	return locations[self.current_location]
 end
 
 return LocationButton

@@ -14,5 +14,6 @@ function randFromDistribution(t, dist_name)
 	for i, v in ipairs(distribution) do
 		if rand <= v.num then
 			return v.val
+		end
 	end
 end

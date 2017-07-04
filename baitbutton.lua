@@ -1,6 +1,6 @@
 GameButton = GameButton or require "gamebutton"
 
-local baits = {"EMPTY"}
+local baits = {"EMPTY", "SHINY_TRASH"}
 
 BaitButton = GameButton:new{x = 360, y = 260, name = baits[1],
 							current_bait = 1,
@@ -31,13 +31,13 @@ function BaitButton:draw()
 	love.graphics.print("Bait: ", 
 		self.x - (25 + love.graphics.getFont():getWidth("Bait: ")), self.y)
 	if (self.active) then
-		love.graphics.print("Cycle through baits with <up> and <down>. Pick with <enter>.", 
+		love.graphics.print("Cycle through baits using the\n <up> and <down> keys. \nPick with <enter>.", 
 			self.x + 120, self.y)
 	end
 end
 
 function BaitButton:getBait()
-	return self.current_bait
+	return baits[self.current_bait]
 end
 
 return BaitButton
